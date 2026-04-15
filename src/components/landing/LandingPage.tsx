@@ -77,7 +77,7 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
               {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
           )}
-          <span className="text-[12px] text-[#4b5563]">X Layer Testnet · Chain ID 195</span>
+          <span className="text-[12px] text-[#4b5563]">X Layer Testnet · Chain ID 1952</span>
           <a
             href="https://github.com/sandman-sh/xcycle"
             target="_blank"

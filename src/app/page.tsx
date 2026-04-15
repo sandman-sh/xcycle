@@ -310,9 +310,9 @@ const PAGE_MAP: Record<NavId, React.ReactNode> = {
   'settings':      <SettingsPage />,
 };
 
-const PAGE_TITLES: Record<NavId, { title: string; sub: string }> = {
-  'dashboard':     { title: 'Dashboard',      sub: 'Live on-chain data · X Layer Testnet (Chain ID 195)' },
-  'positions':     { title: 'Positions',       sub: 'Uniswap V3 LP positions read from NonfungiblePositionManager' },
+const PAGE_TITLES: Record<NavId, { title: string, sub: string }> = {
+  'dashboard':     { title: 'Dashboard',      sub: 'Live on-chain data · X Layer Testnet (Chain ID 1952)' },
+  'positions':     { title: 'LP Positions',   sub: 'Uniswap V3 active pools and fee generation' },
   'cycle-history': { title: 'Transaction History', sub: 'Real ERC-20 Transfer events from X Layer Testnet' },
   'agent-chat':    { title: 'Agent Chat',      sub: 'Execute real on-chain transactions via natural language' },
   'analytics':     { title: 'Analytics',       sub: 'Live network data and agent performance' },

@@ -31,7 +31,7 @@ The application features a premium dark/light mode dashboard designed with Frame
 - **UI & Animations**: Shadcn UI & Framer Motion
 - **Web3 Integration**: Wagmi v3 + Viem + `@tanstack/react-query`
 - **Agent Intelligence**: Real OKX DEX API calls via authenticated server proxy (`/api/okx`)
-- **Network**: X Layer Testnet (Chain ID 195)
+- **Network**: X Layer Testnet (Chain ID 1952)
 
 ---
 

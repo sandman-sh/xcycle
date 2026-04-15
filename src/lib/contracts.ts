@@ -18,7 +18,7 @@ export const CONTRACTS = {
 } as const;
 
 export const CHAIN_CONFIG = {
-  chainId: 195,           // X Layer Testnet chain ID
+  chainId: 1952,           // X Layer Testnet chain ID
   rpcUrl: 'https://testrpc.xlayer.tech',
   blockExplorer: 'https://www.okx.com/web3/explorer/xlayer-test',
   faucetUrl: 'https://www.okx.com/xlayer/faucet',

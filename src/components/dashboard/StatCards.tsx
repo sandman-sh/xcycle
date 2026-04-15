@@ -129,7 +129,7 @@ export function StatCards() {
     {
       label: 'Native Balance (OKB)',
       value: isConnected ? `${nativeFormatted} OKB` : 'Not Connected',
-      sub: isConnected ? `Chain ID: ${balances?.chainId ?? 195}` : 'Connect wallet to view',
+      sub: isConnected ? `Chain ID: ${balances?.chainId ?? 1952}` : 'Connect wallet to view',
       change: isConnected ? 'Live' : '—',
       positive: true,
       icon: TrendingUp,

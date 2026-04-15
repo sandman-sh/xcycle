@@ -3,7 +3,7 @@ import { defineChain } from 'viem';
 import { injected } from 'wagmi/connectors';
 
 export const xLayerTestnet = defineChain({
-  id: 195,
+  id: 1952,
   name: 'X Layer Testnet',
   nativeCurrency: { decimals: 18, name: 'OKB', symbol: 'OKB' },
   rpcUrls: {

@@ -17,11 +17,12 @@ import { CONTRACTS } from './contracts';
 // ── Internal fetch helper ─────────────────────────────────────
 const OKX_PROXY = '/api/okx';
 
-// X Layer Testnet chain ID = 195 for our viem config
-// OKX API uses 196 for X Layer mainnet, for testnet we pass 195
+// X Layer Testnet chain ID = 1952 for our viem config
+// OKX API uses 196 for X Layer mainnet, for testnet we pass 1952
 // Some OKX endpoints may only work on mainnet (196); we'll fall
 // back gracefully when testnet data isn't available.
 const OKX_CHAIN_ID = '196';  // OKX API chain ID for X Layer
+const TARGET_CHAIN_ID = 1952;
 
 async function okxFetch(params: Record<string, string>): Promise<Record<string, unknown>> {
   const url = new URL(OKX_PROXY, window.location.origin);
