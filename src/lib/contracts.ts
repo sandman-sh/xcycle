@@ -19,7 +19,7 @@ export const CONTRACTS = {
 
 export const CHAIN_CONFIG = {
   chainId: 1952,           // X Layer Testnet chain ID
-  rpcUrl: 'https://testrpc.xlayer.tech',
+  rpcUrl: 'https://xlayertestrpc.okx.com',
   blockExplorer: 'https://www.okx.com/web3/explorer/xlayer-test',
   faucetUrl: 'https://www.okx.com/xlayer/faucet',
   nativeCurrency: {

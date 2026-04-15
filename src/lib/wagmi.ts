@@ -7,7 +7,7 @@ export const xLayerTestnet = defineChain({
   name: 'X Layer Testnet',
   nativeCurrency: { decimals: 18, name: 'OKB', symbol: 'OKB' },
   rpcUrls: {
-    default: { http: ['https://testrpc.xlayer.tech'] },
+    default: { http: ['https://xlayertestrpc.okx.com'] },
   },
   blockExplorers: {
     default: { name: 'OKX Explorer', url: 'https://www.okx.com/web3/explorer/xlayer-test' },
@@ -21,7 +21,7 @@ export const config = createConfig({
     injected(),
   ],
   transports: {
-    [xLayerTestnet.id]: http('https://testrpc.xlayer.tech'),
+    [xLayerTestnet.id]: http('https://xlayertestrpc.okx.com'),
   },
 });
 
