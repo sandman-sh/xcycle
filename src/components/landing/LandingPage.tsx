@@ -79,7 +79,7 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
           )}
           <span className="text-[12px] text-[#4b5563]">X Layer Testnet · Chain ID 195</span>
           <a
-            href="https://github.com"
+            href="https://github.com/sandman-sh/xcycle"
             target="_blank"
             rel="noreferrer"
             className="text-[12px] text-[#6b7280] hover:text-white transition-colors"
