@@ -90,16 +90,33 @@ export function AgentChat() {
   const { address, isConnected } = useAccount();
   const { sendTransactionAsync } = useSendTransaction();
   const { config: agentConfig } = useAgentConfig();
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '0',
-      role: 'agent',
-      text: 'Hello! I\'m your **xCycle Agent** running on **X Layer Testnet**.\n\nI execute **real on-chain transactions** using **OKX OnchainOS Skills**:\n\n• **okx-agentic-wallet** — Check balances (OKB, USDC, WOKB)\n• **okx-wallet-portfolio** — View Uniswap V3 LP positions\n• **okx-dex-market** — Get DEX quotes & discover pools\n• **okx-security** — Token risk scanning\n• **okx-dex-swap** — Execute token swaps\n• **okx-x402-payment** — Agent-to-agent OKB transfers\n\nConnect your wallet and try a command!',
-    }
-  ]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [processing, setProcessing] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('xcycle_chat');
+    if (saved) {
+      try {
+        setMessages(JSON.parse(saved));
+      } catch (e) {
+        console.error(e);
+      }
+    } else {
+      setMessages([{
+        id: '0',
+        role: 'agent',
+        text: 'Hello! I\'m your **xCycle Agent** running on **X Layer Testnet**.\n\nI execute **real on-chain transactions** using **OKX OnchainOS Skills**:\n\n• **okx-agentic-wallet** — Check balances\n• **okx-dex-market** — Get DEX quotes\n• **okx-security** — Token risk scanning\n• **okx-x402-payment** — Agent-to-agent OKB transfers\n\nConnect your wallet and try a command!',
+      }]);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (messages.length > 0) {
+      localStorage.setItem('xcycle_chat', JSON.stringify(messages));
+    }
+  }, [messages]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -525,8 +542,8 @@ export function AgentChat() {
         <div ref={bottomRef} />
       </div>
 
-      {/* Suggestions */}
-      {messages.length <= 1 && (
+      {/* Suggestions / Controls */}
+      {messages.length <= 1 ? (
         <div className="px-4 pb-2 flex flex-wrap gap-1.5">
           {SUGGESTIONS.map(s => (
             <button
@@ -537,6 +554,22 @@ export function AgentChat() {
               {s}
             </button>
           ))}
+        </div>
+      ) : (
+        <div className="px-4 pb-2 flex justify-end">
+          <button
+            onClick={() => {
+              setMessages([{
+                id: '0',
+                role: 'agent',
+                text: 'Hello! I\'m your **xCycle Agent** running on **X Layer Testnet**.\n\nI execute **real on-chain transactions** using **OKX OnchainOS Skills**:\n\n• **okx-agentic-wallet** — Check balances\n• **okx-dex-market** — Get DEX quotes\n• **okx-security** — Token risk scanning\n• **okx-x402-payment** — Agent-to-agent OKB transfers\n\nConnect your wallet and try a command!',
+              }]);
+              localStorage.removeItem('xcycle_chat');
+            }}
+            className="text-[10px] font-semibold text-[#f87171] opacity-70 hover:opacity-100 hover:underline transition-opacity"
+          >
+            Clear History
+          </button>
         </div>
       )}
 
