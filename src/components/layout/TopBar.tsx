@@ -9,7 +9,7 @@ import { getExplorerAddressUrl, xLayerTestnet } from '@/lib/wagmi';
 
 import { useAccount, useConnect, useDisconnect, useSwitchChain, useBalance } from 'wagmi';
 import { injected } from 'wagmi/connectors';
-import { formatEther } from 'viem';
+import { formatUnits } from 'viem';
 
 function XCycleLogo() {
   return (
@@ -102,7 +102,7 @@ function WalletChip() {
   }
 
   const displayBalance = balanceData
-    ? `${parseFloat(balanceData.formatted).toFixed(4)} ${balanceData.symbol}`
+    ? `${parseFloat(formatUnits(balanceData.value, balanceData.decimals)).toFixed(4)} ${balanceData.symbol}`
     : '...';
 
   return (
